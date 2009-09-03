@@ -1,6 +1,10 @@
 # -*- coding: mule-utf-8 -*-
 require File.dirname(__FILE__) + '/../spec_helper'
 
+# Be sure to include AuthenticatedTestHelper in spec/spec_helper.rb instead.
+# Then, you can remove it from this and the functional test.
+include AuthenticatedTestHelper
+
 describe User do
   fixtures :users
 
@@ -15,6 +19,12 @@ describe User do
     
     it 'increments User#count' do
       @creating_user.should change(User, :count).by(1)
+    end
+
+    it 'initializes #activation_code' do
+      @creating_user.call
+      @user.reload
+      @user.activation_code.should_not be_nil
     end
   end
 
@@ -212,27 +222,6 @@ describe User do
     users(:quentin).remember_token.should_not be_nil
     users(:quentin).remember_token_expires_at.should_not be_nil
     users(:quentin).remember_token_expires_at.between?(before, after).should be_true
-  end
-  
-  describe "with OpenID" do
-    before(:each) do
-      @user = User.new(:email => 'quire@example.com', :identity_url => 'http://yahoo.com')
-    end
-
-    it "should not require a login or password" do
-      @user.should be_valid
-    end
-    
-    it "should indicate using OpenID" do
-      @user.not_using_openid?.should be_false
-    end
-    
-    it "should require a password if the user attempts to change the password" do
-      @user = users(:quentin)
-      @user.identity_url = 'http://yahoo.com'
-      @user.password = 'foo'
-      @user.password_required?.should be_true
-    end
   end
 
 protected

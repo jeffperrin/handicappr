@@ -1,5 +1,8 @@
 require File.dirname(__FILE__) + '/../spec_helper'
-include OpenIdAuthentication
+
+# Be sure to include AuthenticatedTestHelper in spec/spec_helper.rb instead
+# Then, you can remove it from this and the units test.
+include AuthenticatedTestHelper
 
 describe UsersController do
   fixtures :users
@@ -11,6 +14,13 @@ describe UsersController do
     end.should change(User, :count).by(1)
   end
 
+  
+
+  it 'signs up user with activation code' do
+    create_user
+    assigns(:user).reload
+    assigns(:user).activation_code.should_not be_nil
+  end
   it 'requires login on signup' do
     lambda do
       create_user(:login => nil)
@@ -43,44 +53,37 @@ describe UsersController do
     end.should_not change(User, :count)
   end
   
-  describe "with OpenID" do
-    it "should not require login" do
-      controller.should_receive(:authenticate_with_open_id).with('yahoo.com', {:return_to=>"http://test.host/opencreate"})
-      create_user({:login => nil}, :openid_url => 'yahoo.com')
-    end
-    
-    it "should put the user info in the session" do
-      controller.should_receive(:authenticate_with_open_id).with('yahoo.com', {:return_to=>"http://test.host/opencreate"})
-      create_user({:login => nil}, :openid_url => 'yahoo.com')
-      session[:user_params].should == { 'email' => 'quire@example.com',
-        'password' => 'quire69', 'password_confirmation' => 'quire69', 'login' => nil }
-    end
-    
-    it "should create the user after returning from the provider" do
-      controller.should_receive(:authenticate_with_open_id).
-        with('http://openid.yahoo.com/me/blah', {:return_to=>"http://test.host/opencreate"}).
-        and_yield(Result[:successful], 'http://openid.yahoo.com/me/blah')
-      controller.should_receive(:create_new_user).
-        with({ 'email' => 'quire@example.com', :identity_url => 'http://openid.yahoo.com/me/blah' })
-      request.session[:user_params] = { 'email' => 'quire@example.com' }
-      get :create, { :openid_url => 'http://openid.yahoo.com/me/blah', :open_id_complete => 1 }
-    end
-    
-    it "should warn on failing to create a user after returning from the provider" do
-      controller.should_receive(:authenticate_with_open_id).
-        with('http://openid.yahoo.com/me/blah', {:return_to=>"http://test.host/opencreate"}).
-        and_yield(Result[:failed], 'http://openid.yahoo.com/me/blah')
-      controller.should_not_receive(:create_new_user)
-      controller.should_receive(:failed_creation)
-      request.session[:user_params] = { 'email' => 'quire@example.com' }
-      get :create, { :openid_url => 'http://openid.yahoo.com/me/blah', :open_id_complete => 1 }
-    end
+  
+  it 'activates user' do
+    User.authenticate('aaron', 'monkey').should be_nil
+    get :activate, :activation_code => users(:aaron).activation_code
+    response.should redirect_to('/sessions/new')
+    flash[:notice].should_not be_nil
+    flash[:error ].should     be_nil
+    User.authenticate('aaron', 'monkey').should == users(:aaron)
   end
   
+  it 'does not activate user without key' do
+    get :activate
+    flash[:notice].should     be_nil
+    flash[:error ].should_not be_nil
+  end
   
-  def create_user(options = {}, extra_params = {})
-    post :create, {:user => { :login => 'quire', :email => 'quire@example.com',
-      :password => 'quire69', :password_confirmation => 'quire69' }.merge(options)}.merge(extra_params)
+  it 'does not activate user with blank key' do
+    get :activate, :activation_code => ''
+    flash[:notice].should     be_nil
+    flash[:error ].should_not be_nil
+  end
+  
+  it 'does not activate user with bogus key' do
+    get :activate, :activation_code => 'i_haxxor_joo'
+    flash[:notice].should     be_nil
+    flash[:error ].should_not be_nil
+  end
+  
+  def create_user(options = {})
+    post :create, :user => { :login => 'quire', :email => 'quire@example.com',
+      :password => 'quire69', :password_confirmation => 'quire69' }.merge(options)
   end
 end
 

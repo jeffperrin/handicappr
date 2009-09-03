@@ -6,10 +6,10 @@ class User < ActiveRecord::Base
   include Authentication::ByCookieToken
 
 
-  validates_presence_of     :login,    :if => :not_using_openid?
-  validates_length_of       :login,    :within => 3..40, :if => :not_using_openid?
-  validates_uniqueness_of   :login,    :case_sensitive => false, :if => :not_using_openid?
-  validates_format_of       :login,    :with => RE_LOGIN_OK, :message => MSG_LOGIN_BAD, :if => :not_using_openid?
+  validates_presence_of     :login
+  validates_length_of       :login,    :within => 3..40
+  validates_uniqueness_of   :login,    :case_sensitive => false
+  validates_format_of       :login,    :with => RE_LOGIN_OK, :message => MSG_LOGIN_BAD
 
   validates_format_of       :name,     :with => RE_NAME_OK,  :message => MSG_NAME_BAD, :allow_nil => true
   validates_length_of       :name,     :maximum => 100
@@ -18,17 +18,31 @@ class User < ActiveRecord::Base
   validates_length_of       :email,    :within => 6..100 #r@a.wk
   validates_uniqueness_of   :email,    :case_sensitive => false
   validates_format_of       :email,    :with => RE_EMAIL_OK, :message => MSG_EMAIL_BAD
-  
-  validates_uniqueness_of   :identity_url, :unless => :not_using_openid?
 
-  validate :normalize_identity_url
+  before_create :make_activation_code 
 
   # HACK HACK HACK -- how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
-  attr_accessible :login, :email, :name, :password, :password_confirmation, :identity_url
+  attr_accessible :login, :email, :name, :password, :password_confirmation
 
 
+  # Activates the user in the database.
+  def activate!
+    @activated = true
+    self.activated_at = Time.now.utc
+    self.activation_code = nil
+    save(false)
+  end
+
+  def active?
+    # the existence of an activation code means they have not activated yet
+    activation_code.nil?
+  end
+  
+  def recently_activated?
+    @activated
+  end
 
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   #
@@ -37,24 +51,15 @@ class User < ActiveRecord::Base
   # This will also let us return a human error message.
   #
   def self.authenticate(login, password)
-    u = find_by_login(login) # need to get the salt
+    u = find :first, :conditions => ['login = ? and activated_at IS NOT NULL', login] # need to get the salt
     u && u.authenticated?(password) ? u : nil
-  end
-  
-  def not_using_openid?
-    identity_url.blank?
-  end
-
-  def password_required?
-    new_record? ? not_using_openid? && (crypted_password.blank? || !password.blank?) : !password.blank?
   end
 
   protected
     
-    def normalize_identity_url
-      self.identity_url = OpenIdAuthentication.normalize_identifier(identity_url) unless identity_url.blank?
-    rescue URI::InvalidURIError
-      errors.add_to_base("Invalid OpenID URL")
+    def make_activation_code
+        self.activation_code = self.class.make_token
     end
+
 
 end

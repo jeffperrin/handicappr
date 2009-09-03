@@ -1,6 +1,8 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
-include OpenIdAuthentication
+# Be sure to include AuthenticatedTestHelper in spec/spec_helper.rb instead
+# Then, you can remove it from this and the units test.
+include AuthenticatedTestHelper
 
 describe SessionsController do
   fixtures        :users
@@ -40,8 +42,8 @@ describe SessionsController do
               end
             end
             it "kills existing login"        do controller.should_receive(:logout_keeping_session!); do_create; end    
-            it "authorizes me"               do do_create; controller.send(:authorized?).should be_true;   end    
-            it "logs me in"                  do do_create; controller.send(:logged_in?).should  be_true  end    
+            it "authorizes me"               do do_create; controller.authorized?().should be_true;   end    
+            it "logs me in"                  do do_create; controller.logged_in?().should  be_true  end    
             it "greets me nicely"            do do_create; response.flash[:notice].should =~ /success/i   end
             it "sets/resets/expires cookie"  do controller.should_receive(:handle_remember_cookie!).with(want_remember_me); do_create end
             it "sends a cookie"              do controller.should_receive(:send_remember_cookie!);  do_create end
@@ -76,7 +78,7 @@ describe SessionsController do
     it 'logs out keeping session'   do controller.should_receive(:logout_keeping_session!); do_create end
     it 'flashes an error'           do do_create; flash[:error].should =~ /Couldn't log you in as 'quentin'/ end
     it 'renders the log in page'    do do_create; response.should render_template('new')  end
-    it "doesn't log me in"          do do_create; controller.send(:logged_in?).should == false end
+    it "doesn't log me in"          do do_create; controller.logged_in?().should == false end
     it "doesn't send password back" do 
       @login_params[:password] = 'FROBNOZZ'
       do_create
@@ -95,63 +97,30 @@ describe SessionsController do
     it 'redirects me to the home page' do do_destroy; response.should be_redirect     end
   end
   
-  describe "with OpenID" do
-    describe "successful return" do
-      before(:each) do
-        controller.should_receive(:authenticate_with_open_id).
-          and_yield(Result[:successful], 'http://openid.yahoo.com/me/blah')
-      end
-      
-      it "should load the user based on identity url and log in" do
-        User.should_receive(:find_by_identity_url).with('http://openid.yahoo.com/me/blah').and_return(users(:quentin))
-        controller.should_receive(:successful_login)
-        get :create, 'openid.identity' => 'http://openid.yahoo.com/me/blah', :open_id_complete => 1
-      end
-      
-      it "should fail the login without a user found" do
-        User.should_receive(:find_by_identity_url).with('http://openid.yahoo.com/me/blah').and_return(nil)
-        controller.should_not_receive(:successful_login)
-        get :create, 'openid.identity' => 'http://openid.yahoo.com/me/blah', :open_id_complete => 1
-        flash[:error].should == "Sorry, no user by that identity URL exists (http://openid.yahoo.com/me/blah)"
-        response.should render_template('new')
-      end
-    end
-    
-    describe "failed return" do
-      it "should fail the login" do
-        controller.should_receive(:authenticate_with_open_id).
-          and_yield(Result[:failed], 'http://openid.yahoo.com/me/blah')
-        controller.should_not_receive(:successful_login)
-        get :create, 'openid.identity' => 'http://openid.yahoo.com/me/blah', :open_id_complete => 1
-        response.should render_template('new')
-      end
-    end
-  end
-  
 end
 
 describe SessionsController do
   describe "route generation" do
-    it "should route {:controller => 'sessions', :action => 'new'} to /session/new" do
-      route_for(:controller => 'sessions', :action => 'new').should == "/session/new"
+    it "should route {:controller => 'sessions', :action => 'new'} to /sessions/new" do
+      route_for(:controller => 'sessions', :action => 'new').should == "/sessions/new"
     end
-    it "should route {:controller => 'sessions', :action => 'create'} to /session" do
-      route_for(:controller => 'sessions', :action => 'create').should == "/session"
+    it "should route {:controller => 'sessions', :action => 'create'} to /sessions" do
+      route_for(:controller => 'sessions', :action => 'create').should == "/sessions"
     end
-    it "should route {:controller => 'sessions', :action => 'destroy'} to /session" do
-      route_for(:controller => 'sessions', :action => 'destroy').should == "/session"
+    it "should route {:controller => 'sessions', :action => 'destroy'} to /sessions" do
+      route_for(:controller => 'sessions', :action => 'destroy').should == "/sessions/destroy"
     end
   end
   
   describe "route recognition" do
-    it "should generate params {:controller => 'sessions', :action => 'new'} from GET /session" do
-      params_from(:get, '/session/new').should == {:controller => 'sessions', :action => 'new'}
+    it "should generate params {:controller => 'sessions', :action => 'new'} from GET /sessions" do
+      params_from(:get, '/sessions/new').should == {:controller => 'sessions', :action => 'new'}
     end
-    it "should generate params {:controller => 'sessions', :action => 'create'} from POST /session" do
-      params_from(:post, '/session').should == {:controller => 'sessions', :action => 'create'}
+    it "should generate params {:controller => 'sessions', :action => 'create'} from POST /sessions" do
+      params_from(:post, '/sessions').should == {:controller => 'sessions', :action => 'create'}
     end
-    it "should generate params {:controller => 'sessions', :action => 'destroy'} from DELETE /session" do
-      params_from(:delete, '/session').should == {:controller => 'sessions', :action => 'destroy'}
+    it "should generate params {:controller => 'sessions', :action => 'destroy'} from DELETE /sessions" do
+      params_from(:delete, '/sessions').should == {:controller => 'sessions', :action => 'destroy'}
     end
   end
   
@@ -159,11 +128,11 @@ describe SessionsController do
     before(:each) do
       get :new
     end
-    it "should route users_path() to /session" do
-      session_path().should == "/session"
+    it "should route users_path() to /sessions" do
+      sessions_path().should == "/sessions"
     end
-    it "should route new_user_path() to /session/new" do
-      new_session_path().should == "/session/new"
+    it "should route new_user_path() to /sessions/new" do
+      new_session_path().should == "/sessions/new"
     end
   end
   
