@@ -7,6 +7,8 @@
 # Specifies gem version of Rails to use when vendor/rails is not present
 RAILS_GEM_VERSION = '2.3.3' unless defined? RAILS_GEM_VERSION
 
+DO_NOT_REPLY = "donotreply@handicappr.com"
+
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 
@@ -53,10 +55,22 @@ Rails::Initializer.run do |config|
 
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
-  config.active_record.observers = :user_observer
 
   # Make Active Record use UTC-base instead of local time
   # config.active_record.default_timezone = :utc
+  
+  config.gem 'mislav-will_paginate',
+             :lib => 'will_paginate',
+             :source => 'http://gems.github.com',
+             :version => '~> 2.3.11'
+  config.gem 'thoughtbot-clearance',
+             :lib => 'clearance',
+             :source => 'http://gems.github.com',
+             :version => '>= 0.8.2'
+  config.gem 'justinfrench-formtastic',
+             :lib => 'formtastic',
+             :source => 'http://gems.github.com',
+             :version => '~> 0.2.1'
   
 end
 

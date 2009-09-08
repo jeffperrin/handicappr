@@ -2,7 +2,7 @@ body { background-color: #333333; font-size: 10pt; font-family: Arial; margin: 0
 
 #page { width: 900px; margin: auto; padding: auto; background-image: url(/images/page.png); }
 
-#page2 { width: 900px; background-image: url(/images/pagetop.png); background-repeat: no-repeat; }
+#page2 { width: 900px; background-repeat: no-repeat; }
 
 #header { clear: both; width: 850px; height: 72px; background-image: url(/images/header.png); padding-top: 30px; padding-left: 50px; }
 

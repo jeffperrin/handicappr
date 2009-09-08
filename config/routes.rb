@@ -29,19 +29,26 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  map.root :controller => "users", :action => "show"
+  map.root :controller => "home", :action => "show"
 
   # See how all your routes lay out with "rake routes"
 
   map.resources :users
-
-  map.open_id_complete 'opensession', :controller => "sessions", :action => "create", :requirements => { :method => :get }
-  map.open_id_create 'opencreate', :controller => "users", :action => "create", :requirements => { :method => :get }
-  map.resource :session
+  map.resources :rounds
+  
+  map.user_home 'golfer/:user', :controller => 'users', :action => 'show'
   map.signup '/signup', :controller => 'users', :action => 'new'
-  map.login  '/login',  :controller => 'sessions', :action => 'new'
-  map.logout '/logout', :controller => 'sessions', :action => 'destroy'
-  map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil
+  map.signin '/signin', :controller => 'sessions', :action => 'new'
+  map.signout '/signout', :controller => 'sessions', :action => 'destroy'
+  
+  map.resources :users, :controller => 'users' do |users|
+    users.resource :password, :controller => 'passwords', :only => [:create, :edit, :update]
+    users.resource :confirmation, :controller => 'confirmations', :only => [:new, :create]
+  end
+  
+  map.resources :passwords, :controller => 'passwords', :only => [:new, :create]
+  map.resource  :session, :controller => 'sessions', :only => [:new, :create, :destroy]
+  
   
   # Install the default routes as the lowest priority.
   map.connect ':controller/:action/:id'

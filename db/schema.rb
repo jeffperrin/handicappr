@@ -9,37 +9,33 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090903193839) do
+ActiveRecord::Schema.define(:version => 20090908163138) do
 
-  create_table "open_id_authentication_associations", :force => true do |t|
-    t.integer "issued"
-    t.integer "lifetime"
-    t.string  "handle"
-    t.string  "assoc_type"
-    t.binary  "server_url"
-    t.binary  "secret"
-  end
-
-  create_table "open_id_authentication_nonces", :force => true do |t|
-    t.integer "timestamp",  :null => false
-    t.string  "server_url"
-    t.string  "salt",       :null => false
+  create_table "rounds", :force => true do |t|
+    t.integer  "score"
+    t.integer  "rating"
+    t.integer  "slope"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
-    t.string   "login",                                                    :null => false
-    t.string   "email",                                                    :null => false
-    t.string   "crypted_password",                                         :null => false
-    t.string   "salt",                      :limit => 40
-    t.string   "name",                      :limit => 100, :default => ""
-    t.datetime "updated_at"
-    t.datetime "remember_token_expires_at"
-    t.string   "remember_token",            :limit => 40
+    t.string   "email",              :limit => 100
+    t.string   "salt",               :limit => 40
     t.datetime "created_at"
-    t.datetime "activated_at"
-    t.string   "activation_code",           :limit => 40
+    t.datetime "updated_at"
+    t.string   "remember_token",     :limit => 40
+    t.string   "encrypted_password", :limit => 128
+    t.string   "confirmation_token", :limit => 128
+    t.boolean  "email_confirmed",                   :default => false, :null => false
+    t.string   "name"
+    t.string   "twitter"
   end
 
-  add_index "users", ["login"], :name => "index_users_on_login"
+  add_index "users", ["email"], :name => "index_users_on_email"
+  add_index "users", ["id", "confirmation_token"], :name => "index_users_on_id_and_confirmation_token"
+  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
 end

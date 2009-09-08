@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  score: 1
+  rating: 1
+  slope: 1
+  description: MyText
+
+two:
+  score: 1
+  rating: 1
+  slope: 1
+  description: MyText

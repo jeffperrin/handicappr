@@ -1,0 +1,7 @@
+%a.active{ :href => "/" }
+  %span
+    Home
+- if signed_in?
+  = link_to("<span>Log out</span>", signout_url, :method => :delete)
+- else
+  = link_to("<span>Log in</span>", signin_url)
