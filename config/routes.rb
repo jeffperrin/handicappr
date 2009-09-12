@@ -36,7 +36,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
   map.resources :rounds
   
-  map.user_home 'golfer/:user', :controller => 'users', :action => 'show'
+  map.golfer 'golfer/:user', :controller => 'users', :action => 'show'
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.signin '/signin', :controller => 'sessions', :action => 'new'
   map.signout '/signout', :controller => 'sessions', :action => 'destroy'

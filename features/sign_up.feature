@@ -13,6 +13,7 @@ Feature: Sign up
 
     Scenario: User signs up with valid data
       When I go to the sign up page
+      And I fill in "Name" with "Jeff"
       And I fill in "Email" with "email@person.com"
       And I fill in "Password" with "password"
       And I fill in "Confirm password" with "password"
@@ -21,13 +22,13 @@ Feature: Sign up
       And a confirmation message should be sent to "email@person.com"
 
     Scenario: User confirms his account
-      Given I signed up with "email@person.com/password"
+      Given I signed up with "jeff/email@person.com/password"
       When I follow the confirmation link sent to "email@person.com"
       Then I should see "Confirmed email and signed in"
       And I should be signed in
 
     Scenario: Signed in user clicks confirmation link again
-      Given I signed up with "email@person.com/password"
+      Given I signed up with "jeff/email@person.com/password"
       When I follow the confirmation link sent to "email@person.com"
       Then I should be signed in
       When I follow the confirmation link sent to "email@person.com"
@@ -35,7 +36,7 @@ Feature: Sign up
       And I should be signed in
 
     Scenario: Signed out user clicks confirmation link again
-      Given I signed up with "email@person.com/password"
+      Given I signed up with "jeff/email@person.com/password"
       When I follow the confirmation link sent to "email@person.com"
       Then I should be signed in
       When I sign out

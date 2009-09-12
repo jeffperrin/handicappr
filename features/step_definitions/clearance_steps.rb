@@ -10,16 +10,18 @@ Given /^no user exists with an email of "(.*)"$/ do |email|
   assert_nil User.find_by_email(email)
 end
 
-Given /^I signed up with "(.*)\/(.*)"$/ do |email, password|
+Given /^I signed up with "(.*)\/(.*)\/(.*)"$/ do |name, email, password|
   user = UserFactory.create! do |u|
+    u.name = name
     u.email = email
     u.password = password
     u.password_confirmation = password
   end
 end 
 
-Given /^I am signed up and confirmed as "(.*)\/(.*)"$/ do |email, password|
+Given /^I am signed up and confirmed as "(.*)\/(.*)\/(.*)"$/ do |name, email, password|
   user = UserFactory.create! do |u|
+    u.name = name
     u.email = email
     u.password = password
     u.password_confirmation = password

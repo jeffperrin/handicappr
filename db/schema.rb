@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090908163138) do
+ActiveRecord::Schema.define(:version => 20090910180541) do
 
   create_table "rounds", :force => true do |t|
     t.integer  "score"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20090908163138) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "differential", :precision => 6, :scale => 1
   end
 
   create_table "users", :force => true do |t|

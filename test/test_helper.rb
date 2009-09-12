@@ -35,4 +35,9 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def assert_big_decimal(expected, actual)
+    if BigDecimal(expected.to_s) != actual
+      fail 'Expected ' + BigDecimal(expected.to_s).to_s('F') + ' but was ' + actual.to_s('F')
+    end
+  end
 end
