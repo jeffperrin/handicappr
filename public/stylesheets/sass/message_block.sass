@@ -1,0 +1,29 @@
+.message_block
+  clear: both
+  margin-top: 0.2em
+  margin-bottom: 0.3em
+
+  ul
+    margin-bottom: 0
+    list-style: none
+    padding: 10px
+    border-top: 1px solid #ecd757
+    border-bottom: 1px solid #ecd757
+
+    li
+      margin-left: 3em
+
+    &.error, &.failure
+      background: #fcf6d0 url(/images/message_block/error_m.gif) 1em 10% no-repeat
+
+    &.info
+      background: #fcf6d0 url(/images/message_block/info_m.gif) 1em 10% no-repeat
+
+    &.notice
+      background: #fcf6d0 url(/images/message_block/notice_m.gif) 1em 10% no-repeat
+
+    &.confirm
+      background: #fcf6d0 url(/images/message_block/confirmation_m.gif) 1em 10% no-repeat
+
+    &.warn
+      background: #fcf6d0 url(/images/message_block/warn_m.gif) 1em 10% no-repeat

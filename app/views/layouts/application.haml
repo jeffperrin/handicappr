@@ -5,6 +5,7 @@
       Handicappr
     %meta{ :content => "text/html; charset=iso-8859-1", "http-equiv" => "Content-Type" }
     = stylesheet_link_tag "style"
+    = stylesheet_link_tag "message_block"
     = stylesheet_link_tag "formtastic"
     = stylesheet_link_tag "formtastic_changes"
     = render :partial => 'shared/javascript'
@@ -21,7 +22,7 @@
           = render :partial => 'shared/menu'
         #mainarea
           #contentarea
-            = render :partial => 'shared/flashes'
+            = render :partial => 'shared/messages'
             = yield
           #sidebar
             = yield :sidebar

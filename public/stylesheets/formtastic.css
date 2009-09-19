@@ -26,9 +26,9 @@ form.formtastic legend { color:#000; }
 --------------------------------------------------------------------------------------------------*/
 form.formtastic fieldset { }
 form.formtastic fieldset.inputs { }
-form.formtastic fieldset.buttons { padding-left:25%; }
+form.formtastic fieldset.buttons { padding-left:65%; }
 form.formtastic fieldset ol { }
-form.formtastic fieldset.buttons li { float:left; padding-right:0.5em; }
+form.formtastic fieldset.buttons li { display: inline-block; padding-right:0.5em; }
 
 /* clearfixing the fieldsets */
 form.formtastic fieldset { display: inline-block; }
@@ -54,7 +54,7 @@ form.formtastic fieldset ol li.error { }
 
 /* LABELS
 --------------------------------------------------------------------------------------------------*/
-form.formtastic fieldset ol li label { display:block; width:25%; float:left; padding-top:.2em; }
+form.formtastic fieldset ol li label { display:inline-block; width:25%; padding-top:.2em; }
 form.formtastic fieldset ol li li label { line-height:100%; padding-top:0; }
 form.formtastic fieldset ol li li label input { line-height:100%; vertical-align:middle; margin-top:-0.1em;}
 
@@ -135,3 +135,5 @@ form.formtastic fieldset ol li.datetime fieldset ol li label { display:none; }
 form.formtastic fieldset ol li.date fieldset ol li label input, 
 form.formtastic fieldset ol li.time fieldset ol li label input, 
 form.formtastic fieldset ol li.datetime fieldset ol li label input { display:inline; margin:0; padding:0;  }
+
+/* Jeff's stuff */

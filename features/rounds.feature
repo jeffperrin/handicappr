@@ -15,7 +15,7 @@ Feature: Round Management
       And I fill in "Slope" with "120"
       And I fill in "Rating" with "100"
       And I fill in "Score" with "90"
-      And I press "Submit"
+      And I press "Create Round"
       Then I should now be on the home page for "jeff"
       And I should see "Past rounds:"
       And I should not see "No handicap"

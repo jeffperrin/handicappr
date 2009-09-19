@@ -3,9 +3,8 @@
 %p Start by entering the slope, rating and score from your recent rounds of golf
 
 - semantic_form_for @round do |form|
-  = form.error_messages
   = render :partial => "/rounds/simple_form", :locals => { :form => form }
-  = form.buttons
+  = form.buttons :commit
     
 %h3 Past rounds:
 %table
