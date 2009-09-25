@@ -71,8 +71,6 @@ Rails::Initializer.run do |config|
              :lib => 'formtastic',
              :source => 'http://gems.github.com',
              :version => '~> 0.2.1'
+  config.gem 'haml'
   
 end
-
-Sass::Plugin.options[:style] = :compact
-Sass::Plugin.options[:always_update] = :true
