@@ -1,7 +1,26 @@
-- form.inputs do
-  =form.input :slope,   :input_html => { :size => 18 }
-  =form.input :rating,  :input_html => { :size => 18 }
-  =form.input :score,   :input_html => { :size => 18 }
-  =form.input :played_on
-  =form.input :course
-  =form.input :description, :input_html => { :size => '80x4' }
+%fieldset.handicap-required
+  %legend Required
+  %ol
+    %li
+      = form.label :slope, "Slope:"
+      = form.text_field :slope, :size => '10'
+    %li
+      = form.label :rating, "Rating:"
+      = form.text_field :rating, :size => '10'
+    %li
+      = form.label :score, "Score:"
+      = form.text_field :score, :size => '10'
+    
+%fieldset
+  %legend Optional
+  %ol
+    %li
+      = form.label :course, "Course:"
+      = form.text_field :course
+    %li
+      = form.label :played_on, "Played On:"
+      = form.date_select :played_on, :default => Date.today
+    %li
+      = form.label :description, "Other Details:"
+      %br
+      = form.text_area :description, :size => "60x10"

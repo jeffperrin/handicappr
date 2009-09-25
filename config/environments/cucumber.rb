@@ -48,4 +48,4 @@ config.gem 'webrat',
            :version => '0.4.4'
 config.gem "jeffperrin-object_mother", :lib => "object_mother", :source => "http://gems.github.com"
 
-HOST = 'localhost'
+HOST = 'localhost:3000'

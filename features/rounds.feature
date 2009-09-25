@@ -15,8 +15,14 @@ Feature: Round Management
       And I fill in "Slope" with "120"
       And I fill in "Rating" with "100"
       And I fill in "Score" with "90"
-      And I press "Create Round"
+      And I press "Save"
       Then I should now be on the home page for "jeff"
       And I should see "Past rounds:"
       And I should not see "No handicap"
+      
+    Scenario: User signs in after entering at least one round
+      Given I am signed in as "jeff/email@person.com/password"
+      And I have at least 1 round
+      Then I should not see "Start by entering the slope, rating and score from your recent rounds of golf"
+      And I should not see "Welcome to Handicappr"
 

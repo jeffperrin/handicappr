@@ -1,0 +1,15 @@
+%h2 
+  = "Welcome to Handicappr, " + @user.name
+%p Start by entering the slope, rating and score from your recent rounds of golf
+
+- form_for @round do |form|
+  = render :partial => "/rounds/simple_form", :locals => { :form => form }
+  %p
+    = form.submit 'Save', :disable_with => "Please wait..."
+    
+%h3 Past rounds:
+= render :partial => "/rounds/recent_rounds", :locals => { :user => @user }
+  
+- content_for :sidebar do
+  %p Your Handicap is:
+  = render :partial => "users/handicap", :locals => { :user => @user }

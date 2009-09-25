@@ -6,14 +6,12 @@ class User < ActiveRecord::Base
   validates_presence_of :name
   
   def handicap
-    #rounds = Rounds.all(:conditions => { :user_id => id }, :limit => 20, :order => 'created_at DESC, differential ASC')
-    rounds_to_avg = recent_rounds.first(num_rounds_to_average)
-    rounds.empty? ? nil : avg_rounds(rounds_to_avg)
+    rounds.empty? ? nil : calculate_average(recent_rounds.first num_rounds_to_average)
   end
   
   def recent_rounds
-    r = Round.all(:conditions => { :user_id => id }, :limit => 20, :order => 'created_at DESC')
-    r.sort{ |a,b| a.differential <=> b.differential }
+    r = Round.all(:conditions => { :user_id => id }, :limit => 20, :order => 'played_on DESC, created_at DESC')
+    r.sort { |a, b| a.differential <=> b.differential }
   end
   
   def num_rounds_to_average
@@ -32,7 +30,7 @@ class User < ActiveRecord::Base
   end
   
   protected
-  def avg_rounds(shizz)
-    ((shizz.sum(&:differential) / BigDecimal(shizz.size.to_s)) * BigDecimal('0.96')).round(1)
+  def calculate_average(rounds)
+    ((rounds.sum(&:differential) / BigDecimal(rounds.size.to_s)) * BigDecimal('0.96')).round(1)
   end
 end

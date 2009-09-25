@@ -1,0 +1,18 @@
+%table#rounds
+  %thead
+    %tr
+      %th Course
+      %th Played On
+      %th Slope
+      %th Rating
+      %th Score
+      %th Differential
+  %tbody
+    - user.recent_rounds.each_with_index do |r, i|
+      %tr{:class => (i < user.num_rounds_to_average) ? "used" : ""}
+        %td= r.course
+        %td= r.played_on
+        %td= r.slope
+        %td= r.rating
+        %td= r.score
+        %td= r.differential

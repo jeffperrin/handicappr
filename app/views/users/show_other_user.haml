@@ -1,0 +1,14 @@
+%h2 
+  = "Viewing Handicappr profile of " + @user.name
+
+- if @user.rounds.empty?
+  %p No rounds have been entered
+  - content_for :sidebar do
+    %p= @user.name + " does not yet have a handicap because they haven't entered any rounds."
+    
+- else
+  %h3 Past rounds:
+  = render :partial => "/rounds/recent_rounds", :locals => { :user => @user }
+  - content_for :sidebar do
+    %p.handicap= @user.handicap
+    %p= ''
