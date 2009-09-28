@@ -9,11 +9,13 @@ Feature: Sign up
       And I fill in "Password" with "password"
       And I fill in "Confirm password" with ""
       And I press "Sign Up"
-      Then I should see error messages
+      Then I should see "Username can't be blank"
+      And I should see "Password doesn't match confirmation"
+      And I should see "Email is invalid"
 
     Scenario: User signs up with valid data
       When I go to the sign up page
-      And I fill in "Name" with "Jeff"
+      And I fill in "Username" with "Jeff"
       And I fill in "Email" with "email@person.com"
       And I fill in "Password" with "password"
       And I fill in "Confirm password" with "password"

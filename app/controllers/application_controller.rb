@@ -11,4 +11,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # :secret => 'ef0abd1ccfc828817c1d3b6905deb19b'
   
   filter_parameter_logging :password
+  
+  def authorize_as_owner
+    unless @user.id == current_user.id 
+      #You don’t belong here. Go away. 
+      flash[:error] = "Mind your own business"
+      redirect_to error_url, :status => 401 
+    end
+  end
 end

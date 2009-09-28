@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090913231433) do
+ActiveRecord::Schema.define(:version => 20090927232638) do
 
   create_table "rounds", :force => true do |t|
     t.integer  "score"
@@ -33,8 +33,11 @@ ActiveRecord::Schema.define(:version => 20090913231433) do
     t.string   "encrypted_password", :limit => 128
     t.string   "confirmation_token", :limit => 128
     t.boolean  "email_confirmed",                   :default => false, :null => false
-    t.string   "name"
+    t.string   "username"
     t.string   "twitter"
+    t.string   "full_name"
+    t.string   "location"
+    t.string   "home_page"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"

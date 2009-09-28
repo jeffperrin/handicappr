@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
   include Clearance::User
   
-  attr_accessible :name  
+  attr_accessible :username, :full_name, :location, :home_page  
   has_many :rounds
-  validates_presence_of :name
+  validates_presence_of :username
   
   def handicap
     rounds.empty? ? nil : calculate_average(recent_rounds.first num_rounds_to_average)

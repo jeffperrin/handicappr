@@ -3,7 +3,7 @@ class UserFactory < ObjectMother::Factory
     User.new
   end
   def self.populate(model)
-    model.name = unique('Jim Smith')
+    model.username = unique('Jim Smith')
     model.email = unique_email('john@smith.com')
     model.password = '1234'
   end

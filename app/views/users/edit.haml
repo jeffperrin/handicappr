@@ -1,0 +1,6 @@
+%h2 Edit your profile
+= link_to 'Change your password', edit_user_password_path(@user)
+- semantic_form_for @user do |form|
+  = render :partial => "/users/profile", :locals => { :form => form }
+  - form.buttons do
+    = form.commit_button "Update"

@@ -6,7 +6,7 @@ class RoundsController < ApplicationController
     respond_to do |format|
       if @round.save
         flash[:notice] = 'Round was added.'
-        format.html { redirect_to golfer_path :user => current_user.name }
+        format.html { redirect_to golfer_path :user => current_user.username }
       else
         flash[:error] = 'Couldn\'t create the round'
         format.html do

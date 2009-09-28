@@ -1,6 +1,6 @@
 Given /^I am signed in as "(.*)\/(.*)\/(.*)"$/ do |name, email, password|
   user = UserFactory.create! do |u|
-    u.name = name
+    u.username = name
     u.email = email
     u.password = password
     u.password_confirmation = password
@@ -14,7 +14,7 @@ end
 
 Given /^a user named "([^\"]*)" exists$/ do |name|
   user = UserFactory.create! do |u|
-    u.name = name
+    u.username = name
   end
 end
 
