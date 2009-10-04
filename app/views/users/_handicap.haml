@@ -1,5 +1,5 @@
 - if user.rounds.empty?
   %p No handicap
 - else
-  %p.handicap= user.handicap
-  %p= ''
+  %span.handicap= user.handicap
+  = 'based on the lowest ' + user.num_rounds_to_average.to_s + ' handicap differentials from your most recent ' + user.recent_rounds.size.to_s + ' rounds'

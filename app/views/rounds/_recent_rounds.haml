@@ -8,8 +8,9 @@
       %th Score
       %th Differential
   %tbody
+    - num_rounds_to_avg = user.num_rounds_to_average
     - user.recent_rounds.each_with_index do |r, i|
-      %tr{:class => (i < user.num_rounds_to_average) ? "used" : ""}
+      %tr{:class => (i < num_rounds_to_avg) ? "used" : ""}
         %td= r.course
         %td= r.played_on
         %td= r.slope

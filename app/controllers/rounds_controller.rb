@@ -1,5 +1,9 @@
 class RoundsController < ApplicationController
   
+  def index
+    fetch_user_by_name
+  end
+  
   def create
     @round = Round.new(params[:round])
     @round.user = current_user

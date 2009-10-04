@@ -1,12 +1,12 @@
-fieldset { padding: 10px; margin: 5px 15px 15px 15px; clear: both; line-height: 1.5em; border: 1px solid #ccc; }
+fieldset { padding: 0px; margin-bottom: 10px; clear: both; border: 0; }
 
-form p { margin: 0px 75px 15px 15px; clear: both; line-height: 1.5em; border: 0; text-align: right; }
+form p { margin: 0px 75px 15px 15px; clear: both; line-height: 1.5em; border: 0; text-align: left; }
 
-legend { padding: 2px; margin: 15px; font-weight: bold; font-size: 1.0em; color: #7A5649; }
+legend { padding: 0px; margin: 0px; font-weight: bold; font-size: 1.0em; color: #7A5649; }
 
-label { display: inline-block; width: 120px; }
+label { display: inline-block; width: 120px; vertical-align: top; }
 
-fieldset ol { margin: 0; padding: 0; }
+fieldset ol { margin: 0; padding: 15px; }
 fieldset li { list-style: none; padding: 5px; margin: 0; }
 
 ul.checklist label { width: auto; margin: 0px 25px 0px 3px; }
@@ -36,6 +36,3 @@ select.selected, textarea.selected { background-color: #d9ffcc; border: 1px soli
 .inline-errors label { color: red; background-image: url('/images/bullet_red.png'); background-repeat: no-repeat; background-position: right; }
 
 a.button:hover { font-style: normal; }
-
-fieldset.handicap-required li { float: left; }
-fieldset.handicap-required label { display: inline; }

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   should_have_many :rounds
-  should_validate_presence_of :name
+  should_validate_presence_of :username
   
   context "User with no rounds" do
     setup do

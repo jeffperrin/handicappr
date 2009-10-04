@@ -1,6 +1,7 @@
 - if signed_in?
   = link_to("<span>Home</span>", golfer_path(:user => current_user.username))
   = link_to("<span>Profile</span>", profile_path(:user => current_user.username))
+  = link_to("<span>History</span>", history_path(:user => current_user.username))
   = link_to("<span>Log out</span>", signout_url, :method => :delete)
 - else
   %a.active{ :href => "/" }

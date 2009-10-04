@@ -19,4 +19,14 @@ class ApplicationController < ActionController::Base
       redirect_to error_url, :status => 401 
     end
   end
+  
+  protected
+  def fetch_user_by_name
+    @user = User.find_by_username(params[:user])
+  end
+  
+  def fetch_user_by_id
+    @user = User.find params[:id]
+  end
+  
 end

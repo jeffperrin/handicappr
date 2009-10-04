@@ -6,6 +6,13 @@ class Round < ActiveRecord::Base
   
   before_save :calculate_differential
   
+  named_scope :recent, lambda { |limit|
+    { :limit => limit, :order => 'played_on DESC, created_at DESC' }
+  }
+  named_scope :for_user, lambda { |user|
+    { :conditions => { :user_id => user.id } }
+  }
+  
   protected
   def calculate_differential
     self.differential = ((BigDecimal(score.to_s) - BigDecimal(rating.to_s)) * 

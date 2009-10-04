@@ -31,6 +31,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :rounds
   
   map.profile 'profile/:user', :controller => 'users', :action => 'edit'
+  map.history 'history/:user', :controller => 'rounds', :action => 'index'
   map.golfer 'golfer/:user', :controller => 'users', :action => 'show'
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.signin '/signin', :controller => 'sessions', :action => 'new'

@@ -1,9 +1,8 @@
 fieldset
-  padding: 10px
-  margin: 5px 15px 15px 15px
+  padding: 0px
+  :margin-bottom 10px
   clear: both
-  line-height: 1.5em
-  border: 1px solid #ccc
+  border: 0
 
 form
   p
@@ -11,11 +10,11 @@ form
     clear: both
     line-height: 1.5em
     border: 0
-    text-align: right
+    text-align: left
 
 legend
-  padding: 2px
-  margin: 15px
+  padding: 0px
+  margin: 0px
   font-weight: bold
   font-size: 1.0em
   color: #7A5649
@@ -23,11 +22,12 @@ legend
 label
   display: inline-block
   width: 120px
+  vertical-align: top
 
 fieldset
   ol
     margin: 0
-    padding: 0
+    padding: 15px
 
   li
     list-style: none
@@ -141,7 +141,6 @@ select.selected, textarea.selected
 
 .inline-errors
   display: inline
-
   label
     color: red
     background-image: url('/images/bullet_red.png')
@@ -150,10 +149,4 @@ select.selected, textarea.selected
 
 a.button:hover
   font-style: normal
-
-fieldset.handicap-required
-  li
-    float: left
-  label
-    display: inline
     

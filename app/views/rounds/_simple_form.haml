@@ -1,26 +1,28 @@
 %fieldset.handicap-required
-  %legend Required
+  %legend Required:
   %ol
     %li
       = form.label :slope, "Slope:"
       = form.text_field :slope, :size => '10'
+      %span.hint (Usually between 100 and 160)
     %li
       = form.label :rating, "Rating:"
       = form.text_field :rating, :size => '10'
+      %span.hint (Usually between 68 and 80)
     %li
       = form.label :score, "Score:"
       = form.text_field :score, :size => '10'
+      %span.hint (What you actually shot)
     
 %fieldset
-  %legend Optional
+  %legend Optional:
   %ol
-    %li
-      = form.label :course, "Course:"
-      = form.text_field :course
     %li
       = form.label :played_on, "Played On:"
       = form.date_select :played_on, :default => Date.today
     %li
+      = form.label :course, "Course:"
+      = form.text_field :course, :size => '36'
+    %li
       = form.label :description, "Other Details:"
-      %br
-      = form.text_area :description, :size => "60x10"
+      = form.text_area :description, :size => "40x10"

@@ -3,14 +3,20 @@ class User < ActiveRecord::Base
   
   attr_accessible :username, :full_name, :location, :home_page  
   has_many :rounds
+  
   validates_presence_of :username
+  validates_uniqueness_of :username, :case_sensitive => false
+  
+  def has_just_been_created?
+    return rounds.empty?
+  end
   
   def handicap
     rounds.empty? ? nil : calculate_average(recent_rounds.first num_rounds_to_average)
   end
   
   def recent_rounds
-    r = Round.all(:conditions => { :user_id => id }, :limit => 20, :order => 'played_on DESC, created_at DESC')
+    r = Round.recent(20).for_user(self)
     r.sort { |a, b| a.differential <=> b.differential }
   end
   

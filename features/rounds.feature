@@ -13,12 +13,12 @@ Feature: Round Management
     Scenario: User can enter a round
       Given I am signed in as "jeff/email@person.com/password"
       And I fill in "Slope" with "120"
-      And I fill in "Rating" with "100"
+      And I fill in "Rating" with "70"
       And I fill in "Score" with "90"
       And I press "Save"
       Then I should now be on the home page for "jeff"
-      And I should see "Past rounds:"
       And I should not see "No handicap"
+      And I should see "Your handicap is"
       
     Scenario: User signs in after entering at least one round
       Given I am signed in as "jeff/email@person.com/password"

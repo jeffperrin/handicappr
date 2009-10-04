@@ -1,4 +1,4 @@
-body { background-color: #333333; font-size: .9em; font-family: Tahoma, Helvetica, Arial, sans-serif; margin: 0; padding: 0; color: #333; }
+body { background-color: #333333; font-size: .9em; font-family: Tahoma, Helvetica, Arial, sans-serif; margin: 0; padding: 0; line-height: 1.5em; color: #333333; }
 
 #page { width: 900px; margin: auto; padding: auto; background-image: url(/images/page.png); }
 
@@ -13,8 +13,8 @@ body { background-color: #333333; font-size: .9em; font-family: Tahoma, Helvetic
 
 #menulinks a { padding-left: 11px; height: 35px; background-image: none; display: block; color: #FFFFFF; text-decoration: none; float: left; font-size: 14px; font-weight: bold; margin-right: 3px; margin-left: 3px; }
 #menulinks a span { padding-left: 8px; padding-right: 20px; padding-top: 9px; height: 26px; display: block; background-image: none; text-decoration: none; cursor: pointer; }
-#menulinks a:hover, #menulinks a.active { background-image: url(/images/menuhover.png); background-position: top left; text-decoration: none; color: #555555; }
-#menulinks a:hover span, #menulinks a.active span { background: url(/images/menuhoverright.png) right top no-repeat; text-decoration: none; color: #555555; }
+#menulinks a:hover, #menulinks a.active { background-image: url(/images/menuhover.png); background-position: top left; text-decoration: none; color: green; }
+#menulinks a:hover span, #menulinks a.active span { background: url(/images/menuhoverright.png) right top no-repeat; text-decoration: none; color: green; }
 
 #mainarea { width: 860px; clear: both; padding-left: 40px; }
 
@@ -28,20 +28,24 @@ body { background-color: #333333; font-size: .9em; font-family: Tahoma, Helvetic
 h1 { font-size: 20pt; color: #FFFFFF; margin: 0; }
 h1 a { color: #FFFFFF; }
 
-h2 { font-size: 12pt; color: #333333; padding-top: 6px; }
+h2 { font-size: 12pt; padding-top: 6px; }
 
 .description { font-size: 14pt; color: #FFFFCC; margin: 0; padding-left: 5px; }
 
-.handicap { font-size: 40pt; font-weight: bold; }
+.handicap { font-size: 1.2em; font-weight: bold; }
 
 .used { font-weight: bold; }
 
-a { color: #555555; text-decoration: none; }
+a { color: green; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 table#rounds { width: 100%; }
 table#rounds th { text-align: center; }
 table#rounds td { text-align: center; }
 
-.gravatar { text-align: left; }
-.gravatar img { border: 1px solid #333; }
+.gravatar { text-align: left; font-size: .8em; }
+.gravatar img { border: 1px solid #333; float: right; margin: 0px 5px 20px 5px; }
+
+span.hint { font-size: .8em; }
+
+.clear { clear: both; }
