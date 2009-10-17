@@ -1,42 +1,36 @@
 !text_color= #333
 !link_color= green
+!bg_color= #333
+!content_bg_color= #eee
+!shadow_border= 3px solid #222
 
 body
-  background-color: #333333
-  font-size: .9em
-  font-family: Tahoma, Helvetica, Arial, sans-serif
+  background-color= !bg_color
+  font-size: 1em
+  font-family: Palatino, "Times New Roman", serif
   margin: 0
   padding: 0
   line-height: 1.5em
   color = !text_color
 
-#page
-  width: 900px
-  margin: auto
-  padding: auto
-  background-image: url(/images/page.png)
-
-#page2
-  width: 900px
-  background-repeat: no-repeat
-
 #header
   clear: both
-  width: 850px
-  height: 72px
+  height: 70px
   background-image: url(/images/header.png)
+  background-repeat: repeat-x
   padding-top: 30px
   padding-left: 50px
+  font-family: Optima, Tahoma, Helvetica, Arial, sans-serif
 
 #menulinks
   clear: both
-  width: 875px
-  height: 42px
-  padding-left: 25px
+  height: 40px
+  padding-left: 65px
   background-image: url(/images/menulinks.png)
+  background-repeat: repeat-x
+  font-family: Optima, Tahoma, Helvetica, Arial, sans-serif
 
-
-* html #menulinks a
+#menulinks a
   float: left
   text-decoration: none
 
@@ -52,7 +46,6 @@ body
   color: #FFFFFF
   text-decoration: none
   float: left
-  font-size: 14px
   font-weight: bold
   margin-right: 3px
   margin-left: 3px
@@ -79,46 +72,51 @@ body
     color= !link_color
 
 #mainarea
-  width: 860px
+  width: 90%
   clear: both
-  padding-left: 40px
+  margin: auto
+  background-color= !content_bg_color
+  border-left= !shadow_border
+  border-right= !shadow_border
+  border-bottom= !shadow_border
+
+#mainareawrapper
+  clear: both
 
 #contentarea
-  width: 560px
-  padding-right: 30px
+  width: 65%
+  padding: 25px
   float: left
   line-height: 14pt
   padding-bottom: 10px
 
 #sidebar
   float: left
-  width: 235px
+  width: 25%
   line-height: 14pt
 
 #footer
-  width: 900px
   clear: both
   height: 30px
   padding-top: 20px
   text-align: center
   line-height: 14pt
-  background-image: url(/images/footer.png)
-  background-repeat: no-repeat
+  background-color: green
   color: #FFFFFF
-
+  border-top: 2px solid #eee
   a
     color: #FFFFFF
 
 h1
-  font-size: 20pt
+  font-size: 2em
   color: #FFFFFF
   margin: 0
-
+  padding: 5px
   a
     color: #FFFFFF
 
 h2
-  font-size: 12pt
+  font-size: 1.5em
   padding-top: 6px
 
 .description
@@ -150,14 +148,32 @@ table#rounds
 
 .gravatar
   text-align: left
-  font-size: .8em
   img
     border: 1px solid #333
-    float: right
     margin: 0px 5px 20px 5px
+    
+.small
+  font-size: .8em
     
 span.hint
   font-size: .8em
 
 .clear
   clear: both
+  
+.curved
+  -moz-border-radius-bottomright: 5px
+  -moz-border-radius-bottomleft: 5px
+  -webkit-border-bottom-right-radius: 5px
+  -webkit-border-bottom-left-radius: 5px
+  
+div.pagination
+  text-align: center
+  margin: 15px
+  a
+    padding: 4px
+    border: 1px solid green
+    &:hover
+      background: green
+      color: white
+      text-decoration: none

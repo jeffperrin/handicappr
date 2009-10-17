@@ -1,7 +1,15 @@
 %p.gravatar
   = image_tag gravatar_url_for(user.email)
+
+%p.small
   = user.full_name
-  %br
-  = user.location
-  %br
-  = user.home_page
+  - unless user.location.blank?
+    %br
+    = user.location
+  - unless user.twitter.blank?
+    = '<br/>Twitter: '
+    = link_to('@' + user.twitter, 'http://twitter.com/' + user.twitter)
+  - unless user.home_page.blank?
+    %br
+    = 'Web: '
+    = link_to(user.home_page, user.home_page)

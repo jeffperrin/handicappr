@@ -9,22 +9,22 @@
     = stylesheet_link_tag "forms"
     = render :partial => 'shared/javascript'
   %body
-    #page
-      #page2
-        #header
-          %h1
-            %a{ :href => "/" }
-              Handicappr...
-          .description
-            \...because you want to know how much you really suck at golf
-        #menulinks
-          = render :partial => 'shared/menu'
-        #mainarea
-          #contentarea
-            = render :partial => 'shared/messages'
-            = yield
-          #sidebar
-            = yield :sidebar
+    #header
+      %h1
+        %a{ :href => "/" }
+          Handicappr...
+      %p.description
+        \...because you want to know how much you really suck at golf
+    #menulinks
+      = render :partial => 'shared/menu'
+    #mainareawrapper
+      #mainarea
+        #contentarea
+          = render :partial => 'shared/messages'
+          = yield
+        #sidebar
+          = yield :sidebar
+        .clear
         #footer
           %a{ :href => "http://www.free-css-templates.com/" }
             Designed by Free CSS Templates

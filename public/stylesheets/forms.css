@@ -2,17 +2,15 @@ fieldset { padding: 0px; margin-bottom: 10px; clear: both; border: 0; }
 
 form p { margin: 0px 75px 15px 15px; clear: both; line-height: 1.5em; border: 0; text-align: left; }
 
-legend { padding: 0px; margin: 0px; font-weight: bold; font-size: 1.0em; color: #7A5649; }
+legend { padding: 0px; margin: 0px; font-weight: bold; font-size: 1.2em; color: #7A5649; }
 
-label { display: inline-block; width: 120px; vertical-align: top; }
+label { padding-top: 10px; display: inline-block; width: 120px; vertical-align: top; }
 
 fieldset ol { margin: 0; padding: 15px; }
 fieldset li { list-style: none; padding: 5px; margin: 0; }
 
 ul.checklist label { width: auto; margin: 0px 25px 0px 3px; }
 ul.checklist li { display: inline-block; width: 170px; }
-
-#sidebar a, button, a.button { display: inline-block; vertical-align: baseline; margin-right: 0.3em; background-color: #e3e3e3; border-top: 1px solid #ccc; border-left: 1px solid #ccc; border-bottom: 1px solid #aaa; border-right: 1px solid #aaa; border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; line-height: 14px; text-decoration: none; font-size: 14px; color: #565656; padding: 4px; width: auto; overflow: visible; cursor: pointer; }
 
 input[type=button], input[type=submit] { display: inline-block; vertical-align: baseline; margin-right: 0.3em; background-color: #e3e3e3; border-top: 1px solid #ccc; border-left: 1px solid #ccc; border-bottom: 1px solid #aaa; border-right: 1px solid #aaa; border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; line-height: 14px; text-decoration: none; font-size: 14px; color: #565656; padding: 4px; width: auto; overflow: visible; cursor: pointer; }
 
@@ -24,7 +22,7 @@ input[type=submit] img { margin: 0 3px -3px 0 !important; padding: 0; border: no
 
 a.button:link, a.button:visited { color: #565656; }
 
-input[type=text], input[type=password] { padding: 4px; border: 1px solid #ccc; background-color: #fff; font-size: .9em; }
+input[type=text], input[type=password] { padding: 4px; border: 1px solid #ccc; background-color: #fff; font-size: 1.0em; }
 
 select, textarea { padding: 4px; border: 1px solid #ccc; background-color: #fff; }
 

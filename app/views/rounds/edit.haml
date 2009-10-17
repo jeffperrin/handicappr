@@ -1,0 +1,4 @@
+- form_for @round do |form|
+  = render :partial => "/rounds/simple_form", :locals => { :form => form }
+  %p
+    = form.submit 'Save', :disable_with => "Please wait..."

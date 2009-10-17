@@ -1,19 +1,19 @@
+= will_paginate rounds
 %table#rounds
   %thead
     %tr
       %th Course
       %th Played On
-      %th Slope
-      %th Rating
       %th Score
       %th Differential
+      %th
+      %th
   %tbody
-    - num_rounds_to_avg = user.num_rounds_to_average
-    - user.recent_rounds.each_with_index do |r, i|
-      %tr{:class => (i < num_rounds_to_avg) ? "used" : ""}
+    - rounds.each_with_index do |r, i|
+      %tr
         %td= r.course
         %td= r.played_on
-        %td= r.slope
-        %td= r.rating
         %td= r.score
         %td= r.differential
+        %td= link_to 'Edit', edit_round_path(r)
+        %td= link_to 'Delete', round_path(r), :method => 'delete'
