@@ -23,6 +23,7 @@ Feature: Round Management
     Scenario: User signs in after entering at least one round
       Given I am signed in as "jeff/email@person.com/password"
       And I have at least 1 round
+      When I go to the homepage
       Then I should not see "Start by entering the slope, rating and score from your recent rounds of golf"
-      And I should not see "Welcome to Handicappr"
+      And I should see "Welcome to Handicappr"
 

@@ -14,6 +14,9 @@ class UserTest < ActiveSupport::TestCase
     should "have no handicap" do
       assert @user.handicap.nil?
     end
+    should "be marked as having just been created" do
+      assert @user.has_just_been_created?
+    end
   end
   
   context "User with one round" do
@@ -29,6 +32,9 @@ class UserTest < ActiveSupport::TestCase
     end
     should "have a handicap" do
       assert_big_decimal 9.0, @user.handicap
+    end
+    should "no longer be marked as having just been created" do
+      assert !@user.has_just_been_created?
     end
   end
   context "User with 6 rounds" do

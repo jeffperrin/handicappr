@@ -24,7 +24,7 @@ end
 
 Given /^I have at least 1 round$/ do
   RoundFactory.create! do |r|
-    r.user = User.last
+    r.user = User.first
   end
 end
 
