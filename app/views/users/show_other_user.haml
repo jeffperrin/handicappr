@@ -9,7 +9,7 @@
     
 - else
   %h3 Past rounds:
-  = render :partial => "/rounds/recent_rounds", :locals => { :user => @user }
+  = render :partial => "/rounds/recent_rounds", :locals => { :rounds => @user.recent_rounds(params[:page], 10) }
   - content_for :sidebar do
     %p.gravatar= image_tag gravatar_url_for(@user.email)
     %p.handicap= @user.handicap

@@ -44,8 +44,8 @@ When /^session is cleared$/ do
   controller.instance_variable_set(:@_current_user, nil)
 end
 
-Given /^I have signed in with "(.*)\/(.*)"$/ do |email, password|
-  Given %{I am signed up and confirmed as "#{email}/#{password}"}
+Given /^I have signed in with "(.*)\/(.*)\/(.*)"$/ do |username, email, password|
+  Given %{I am signed up and confirmed as "#{username}/#{email}/#{password}"}
   And %{I sign in as "#{email}/#{password}"}
 end
 

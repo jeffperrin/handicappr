@@ -11,7 +11,7 @@ Feature: Round Management
       And I should see "No handicap"
       
     Scenario: User can enter a round
-      Given I am signed in as "jeff/email@person.com/password"
+      Given I have signed in with "jeff/email@person.com/password"
       And I fill in "Slope" with "120"
       And I fill in "Rating" with "70"
       And I fill in "Score" with "90"

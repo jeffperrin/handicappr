@@ -1,0 +1,3 @@
+%h3= 'Results for ' + params[:val] + ':'
+- results.each do |result|
+  %p= link_to result.username, golfer_path(result.username)

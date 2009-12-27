@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password
   
   def authorize_as_owner
+    if current_user == nil 
+      flash[:error] = "Mind your own business"
+      redirect_to error_url, :status => 401
+    end
     unless @user.id == current_user.id 
       #You don’t belong here. Go away. 
       flash[:error] = "Mind your own business"

@@ -33,7 +33,7 @@ class RoundsController < ApplicationController
         flash[:error] = 'Couldn\'t create the round'
         format.html do
           @user = current_user
-          render :template => 'users/show'
+          render :template => 'users/show_current_user'
         end
       end
     end

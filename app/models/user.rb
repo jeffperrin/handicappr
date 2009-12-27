@@ -7,15 +7,23 @@ class User < ActiveRecord::Base
   validates_presence_of :username
   validates_uniqueness_of :username, :case_sensitive => false
   
+  named_scope :search, lambda { |search_term|
+    { :conditions => "username LIKE '%#{search_term}%'" }
+  }
+  
+  def recent_rounds(page, per_page=10)
+    Round.paginate_by_user_id(id, :page => page, :order => 'updated_at DESC', :per_page => per_page)
+  end
+  
   def has_just_been_created?
     return rounds.empty?
   end
   
   def handicap
-    rounds.empty? ? nil : calculate_average(recent_rounds.first num_rounds_to_average)
+    rounds.empty? ? nil : calculate_average(recent_rounds_for_handicap_calculation.first(num_rounds_to_average))
   end
   
-  def recent_rounds
+  def recent_rounds_for_handicap_calculation
     r = Round.recent(20).for_user(self)
     r.sort { |a, b| a.differential <=> b.differential }
   end

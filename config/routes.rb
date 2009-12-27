@@ -30,6 +30,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # See how all your routes lay out with "rake routes"
   map.resources :rounds
+  map.resources :search, :controller => 'searches', :only => [:index, :show]
   
   map.profile 'profile/:user', :controller => 'users', :action => 'edit'
   map.history 'history/:user', :controller => 'rounds', :action => 'index'
@@ -44,7 +45,7 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   map.resources :passwords, :controller => 'passwords', :only => [:new, :create]
-  map.resource  :session, :controller => 'sessions', :only => [:new, :create, :destroy]
+  map.resource :session, :controller => 'sessions', :only => [:new, :create, :destroy]
   
   # Install the default routes as the lowest priority.
   map.connect ':controller/:action/:id'

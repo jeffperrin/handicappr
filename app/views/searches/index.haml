@@ -1,0 +1,11 @@
+%h2 Search for a golfer
+- form_tag search_index_path, :method => 'get' do
+  = label_tag :val, "Find a golfer:"
+  = '<br />'
+  = text_field_tag :val
+  = submit_tag "Search"
+- unless @results.empty?
+  = render :partial => "/searches/results", :locals => { :results => @results }
+  
+
+  
