@@ -1,1 +1,6 @@
-= render :partial => "recent_rounds", :locals => { :rounds => @rounds }
+%h2 Your History:
+
+- if @rounds.empty?
+  p No rounds have been entered
+- else
+  = render :partial => "editable_rounds_list", :locals => { :rounds => @rounds }

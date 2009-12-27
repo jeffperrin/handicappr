@@ -11,3 +11,11 @@ Feature: Browsing Users
     And I go directly to the url /golfer/Pasquale
     Then I should see "Pasquale does not yet have a handicap"
     And I should see "No rounds have been entered"
+
+  Scenario: User navigates to a users page with one round
+    Given a user named "Pasquale" exists
+    And "Pasquale" has 1 round
+    And I go directly to the url /golfer/Pasquale
+    Then I should see "Past rounds"
+    And I should not see "Edit"
+    And I should not see "Delete"

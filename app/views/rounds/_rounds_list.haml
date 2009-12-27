@@ -1,0 +1,15 @@
+= will_paginate rounds
+%table#rounds
+  %thead
+    %tr
+      %th Course
+      %th Played On
+      %th Score
+      %th Differential
+  %tbody
+    - rounds.each_with_index do |r, i|
+      %tr
+        %td= r.course
+        %td= r.played_on
+        %td= r.score
+        %td= r.differential

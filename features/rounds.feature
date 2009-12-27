@@ -27,3 +27,7 @@ Feature: Round Management
       Then I should not see "Start by entering the slope, rating and score from your recent rounds of golf"
       And I should see "Welcome to Handicappr"
 
+    Scenario: User with no rounds can view past rounds
+      Given I have signed in with "jeff/j@p.com/1234"
+      And I follow "History"
+      Then I should see "No rounds have been entered"

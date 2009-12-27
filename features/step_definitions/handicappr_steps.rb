@@ -28,3 +28,10 @@ Given /^I have at least 1 round$/ do
   end
 end
 
+Given /^"([^\"]*)" has 1 round$/ do |name|
+  RoundFactory.create! do |r|
+    r.user = User.find_by_username(name)
+  end
+end
+
+
