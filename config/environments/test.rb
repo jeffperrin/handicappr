@@ -1,5 +1,4 @@
 # Settings specified here will take precedence over those in config/environment.rb
-HOST = "localhost:3000"
 
 # The test environment is used exclusively to run your application's
 # test suite.  You never need to work with it otherwise.  Remember that
@@ -26,9 +25,6 @@ config.gem 'thoughtbot-shoulda',
            :lib => 'shoulda', 
            :source => 'http://gems.github.com', 
            :version => '>= 2.10.2'
-config.gem 'nokogiri',
-          :version => '1.3.3',
-          :lib     => false
-config.gem 'webrat',
-          :version => '0.4.4'
+config.gem 'nokogiri', :lib     => false
+config.gem 'webrat'
 config.gem "jeffperrin-object_mother", :lib => "object_mother", :source => "http://gems.github.com"

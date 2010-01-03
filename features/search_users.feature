@@ -13,3 +13,4 @@ Feature: Search Golfers
     And I fill in "Find a golfer" with "Pasquale"
     And I press "Search"
     Then I should see "Results for Pasquale:"
+    And I should see ""

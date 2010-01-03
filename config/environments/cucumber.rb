@@ -1,4 +1,10 @@
-config.cache_classes = true # This must be true for Cucumber to operate correctly!
+# Edit at your own peril - it's recommended to regenerate this file
+# in the future when you upgrade to a newer version of Cucumber.
+
+# IMPORTANT: Setting config.cache_classes to false is known to
+# break Cucumber's use_transactional_fixtures method.
+# For more information see https://rspec.lighthouseapp.com/projects/16211/tickets/165
+config.cache_classes = true
 
 # Log error messages when you accidentally call methods on nil.
 config.whiny_nils = true
@@ -15,37 +21,9 @@ config.action_controller.allow_forgery_protection    = false
 # ActionMailer::Base.deliveries array.
 config.action_mailer.delivery_method = :test
 
-config.gem 'thoughtbot-factory_girl', 
-           :lib => 'factory_girl', 
-           :source => 'http://gems.github.com', 
-           :version => '>= 1.2.0'
-
-# Cucumber and dependencies
-config.gem 'polyglot',
-           :version => '0.2.6',
-           :lib     => false
-config.gem 'treetop',
-           :version => '1.2.6',
-           :lib     => false
-config.gem 'term-ansicolor',
-           :version => '1.0.3',
-           :lib     => false
-config.gem 'diff-lcs',
-           :version => '1.1.2',
-           :lib     => false
-config.gem 'builder',
-           :version => '2.1.2',
-           :lib     => false
-config.gem 'cucumber',
-           :version => '0.3.11'
-
-# Webrat and dependencies
-# NOTE: don't vendor nokogiri - it's a binary Gem
-config.gem 'nokogiri',
-           :version => '1.3.3',
-           :lib     => false
-config.gem 'webrat',
-           :version => '0.4.4'
+config.gem 'cucumber-rails',   :lib => false, :version => '>=0.2.2' unless File.directory?(File.join(Rails.root, 'vendor/plugins/cucumber-rails'))
+config.gem 'database_cleaner', :lib => false, :version => '>=0.2.3' unless File.directory?(File.join(Rails.root, 'vendor/plugins/database_cleaner'))
+config.gem 'webrat',           :lib => false, :version => '>=0.6.0' unless File.directory?(File.join(Rails.root, 'vendor/plugins/webrat'))
+config.gem 'rspec',            :lib => false, :version => '>=1.2.9' unless File.directory?(File.join(Rails.root, 'vendor/plugins/rspec'))
+config.gem 'rspec-rails',      :lib => false, :version => '>=1.2.9' unless File.directory?(File.join(Rails.root, 'vendor/plugins/rspec-rails'))
 config.gem "jeffperrin-object_mother", :lib => "object_mother", :source => "http://gems.github.com"
-
-HOST = 'localhost:3000'
