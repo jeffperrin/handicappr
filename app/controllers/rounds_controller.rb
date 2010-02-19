@@ -2,7 +2,7 @@ class RoundsController < ApplicationController
   
   def index
     fetch_user_by_name
-    @rounds = Round.paginate_by_user_id @user.id, :page => params[:page], :order => 'updated_at DESC', :per_page => 10
+    @rounds = Round.paginate_by_user_id @user.id, :page => params[:page], :order => 'played_on DESC, created_at DESC', :per_page => 10
   end
   
   def edit
