@@ -1,3 +1,4 @@
 %h3= 'Results for ' + params[:val] + ':'
 - results.each do |result|
-  %p= link_to result.username, golfer_path(result.username)
+  - if !signed_in? || current_user.id != result.id
+    %p= link_to result.username, golfer_path(result.username)

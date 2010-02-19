@@ -34,4 +34,9 @@ Given /^"([^\"]*)" has 1 round$/ do |name|
   end
 end
 
+Given /^I search for users with "([^\"]*)"$/ do |search_term|
+  When %{I go directly to the url /search}
+  And %{I fill in "Find a golfer" with "#{search_term}"}
+  And %{I press "Search"}
+end
 
