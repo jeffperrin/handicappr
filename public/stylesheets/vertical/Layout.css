@@ -1,0 +1,110 @@
+﻿html{
+	clear: both;
+	background-color: #efe;
+}
+header{
+	
+}
+header h1{
+	padding: 30px;
+	background-color: green;
+	background-image: url(flag.png);
+	background-repeat: no-repeat;
+	background-position: 10px;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	text-align: right;
+}
+section#info{
+	position: fixed;
+	height: 100%;
+	width: 30%;
+	background-color: #3F3F3F;
+	background-repeat: repeat-y;
+	background-position-x: right;
+	color: #ddd;
+}
+section#content{
+	float: left;
+	margin-left: 35%;
+	clear: both;
+	background-color: #efe;
+	width: 60%;
+	background-repeat: repeat-y;
+	ba
+}
+section#messages{
+	display: inline-block;
+	width: 100%;
+	background-color: #F0FFA4;
+	border: 2px solid #EED957;
+	border-top-width: 0;
+	-moz-border-radius-bottomright: 10px; 
+	-moz-border-radius-bottomleft: 10px; 
+	-webkit-border-bottom-right-radius: 10px; 
+	-webkit-border-bottom-left-radius: 10px;
+}
+section#messages ul{
+	padding: 8px;
+}
+section#messages ul li{
+	list-style-type: none;
+	margin-left: 50px;
+}
+section#messages ul.notice{
+	background-repeat: no-repeat;
+	background-image: url(notice.png);
+}
+section#messages ul.error{
+	background-repeat: no-repeat;
+	background-image: url(warning.png);
+}
+aside{
+	padding: 1.5em;
+}
+footer{
+	position: fixed;
+	bottom: 0;
+}
+
+nav ol{
+	text-align: right;
+	font-size: larger;
+	
+	padding: 0; margin: 0;
+}
+nav ol li{
+	padding: 0; margin-left: 140px;
+	list-style-type: none;
+}
+nav ol li a{
+	text-decoration: none;
+	padding: 5px 25px 5px 5px;
+	display: block;
+	color: #ddd;
+}
+nav ol li a:hover{
+	background-color: #676767;
+}
+#gravatar{
+	float: left;
+	margin: 8px;
+	border: 1px solid #bbb;
+}
+#bio{
+	margin: 10px;
+}
+#handicap{
+	position: fixed;
+	left: 20px;
+	top: 150px;
+	font-size: 3em;
+}
+#handicap a{
+	text-decoration: none;
+	color: inherit;
+}
+#handicap a:hover{
+	text-decoration: none;
+}
+

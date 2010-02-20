@@ -8,7 +8,7 @@ Feature: Round Management
       Then I should now be on the home page for "jeff"
       And I should see "Welcome to Handicappr, jeff"
       And I should see "Start by entering the slope, rating and score from your recent rounds of golf"
-      And I should see "No handicap"
+      And I should see "N/A"
       
     Scenario: User can enter a round
       Given I have signed in with "jeff/email@person.com/password"
@@ -17,8 +17,8 @@ Feature: Round Management
       And I fill in "Score" with "90"
       And I press "Save"
       Then I should now be on the home page for "jeff"
-      And I should not see "No handicap"
-      And I should see "Your handicap is"
+      And I should not see "N/A"
+      And I should see "18.0"
       
     Scenario: User signs in after entering at least one round
       Given I am signed in as "jeff/email@person.com/password"

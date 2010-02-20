@@ -1,0 +1,8 @@
+%img{:src => gravatar_url_for(current_user.email), :id => "gravatar"}
+= render :partial => 'users/bio', :locals => { :user => current_user }
+#handicap
+  - if current_user.rounds.empty?
+    %a N/A
+  - else
+    %a{ :href => "#", :title => "Handicap" }
+      = current_user.handicap

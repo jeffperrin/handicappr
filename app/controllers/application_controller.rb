@@ -3,6 +3,8 @@
 
 class ApplicationController < ActionController::Base
   include Clearance::Authentication
+  
+  layout :determine_layout
 
   helper :all # include all helpers, all the time
 
@@ -11,6 +13,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # :secret => 'ef0abd1ccfc828817c1d3b6905deb19b'
   
   filter_parameter_logging :password
+  
+  def determine_layout
+    if signed_in?
+      'app'
+    else
+      'application'
+    end
+  end
   
   def authorize_as_owner
     if current_user == nil 

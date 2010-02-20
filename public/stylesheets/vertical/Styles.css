@@ -1,0 +1,103 @@
+﻿body
+{
+	margin: 0;
+	font-family: Palatino, "Times New Roman", serif
+	font-size: 1.0em;
+	line-height: 1.5em; 
+}
+h1
+{
+	font-size: 2em;
+}
+h2
+{
+	font-size: 1.6em;
+}
+h3
+{
+	font-size: 1.4em;
+}
+h1,h2,h3
+{
+	font-family: Garamond, "Times New Roman", Times, serif;
+	margin: 10px 0;
+}
+h1,h2,h3,h4,h5,h6,strong,dt
+{
+	font-weight: bold;
+}
+em
+{
+	font-style: italic;
+}
+blockquote,ul,ol,dl
+{
+	margin: 1em;
+}
+ol,ul,dl
+{
+	margin-left: 2em;
+}
+ol li
+{
+	list-style: decimal outside;
+}
+ul li
+{
+	list-style: disc outside;
+}
+th,td
+{
+	padding: .5em;
+}
+th
+{
+	font-weight: bold;
+	text-align: left;
+	border-bottom: 2px solid #4C88BE
+}
+tr{
+	border-bottom: dashed 1px #ddd;
+}
+caption
+{
+	margin-bottom: .5em;
+	text-align: center;
+}
+sup
+{
+	vertical-align: super;
+}
+input[type="checkbox"],input[type="radio"],input[type="reset"],input[type="submit"]
+{
+	padding: 1px;
+}
+a{
+	color: #00477F;
+	text-decoration: underline;
+}
+a:hover{
+	background-color: #00477F;
+	color: #fff;
+}
+
+.message_block { clear: both; margin-top: 0.2em; margin-bottom: 0.3em; }
+.message_block ul { margin-bottom: 0; list-style: none; padding: 10px; border-top: 1px solid #ecd757; border-bottom: 1px solid #ecd757; }
+.message_block ul li { margin-left: 2em; }
+.message_block ul.error, .message_block ul.failure { background: #fcf6d0 url(/images/message_block/error_m.gif) 1em 10% no-repeat; }
+.message_block ul.info { background: #fcf6d0 url(/images/message_block/info_m.gif) 1em 10% no-repeat; }
+.message_block ul.notice { background: #fcf6d0 url(/images/message_block/notice_m.gif) 1em 10% no-repeat; }
+.message_block ul.confirm { background: #fcf6d0 url(/images/message_block/confirmation_m.gif) 1em 10% no-repeat; }
+.message_block ul.success { background: #fcf6d0 url(/images/message_block/confirmation_m.gif) 1em 10% no-repeat; }
+.message_block ul.warn { background: #fcf6d0 url(/images/message_block/warn_m.gif) 1em 10% no-repeat; }
+
+.gravatar { text-align: left; }
+.gravatar img { border: 1px solid #333; margin: 0px 5px 20px 5px; }
+
+.small { font-size: .8em; }
+
+span.hint { font-size: .8em; }
+
+.clear { clear: both; }
+
+.curved { -moz-border-radius-bottomright: 5px; -moz-border-radius-bottomleft: 5px; -webkit-border-bottom-right-radius: 5px; -webkit-border-bottom-left-radius: 5px; }

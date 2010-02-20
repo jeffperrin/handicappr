@@ -1,0 +1,25 @@
+!!!
+%html{ :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %title
+      Handicappr
+    = stylesheet_link_tag "vertical/Reset"
+    = stylesheet_link_tag "vertical/Styles"
+    = stylesheet_link_tag "vertical/Layout"
+    = stylesheet_link_tag "vertical/Forms"
+    = render :partial => 'shared/javascript'
+  %body
+    %section#info
+      %header
+        %h1
+          Handicappr
+        %nav
+          = render :partial => 'shared/menu'
+      %aside
+        = render :partial => 'shared/logged_in_sidebar'
+    %section#content
+      %section#messages
+        = render :partial => 'shared/messages'
+      = yield
+    %footer
+      © 2010 Example Inc.

@@ -1,0 +1,12 @@
+#bio
+  = user.full_name
+  - unless user.location.blank?
+    %br
+    = user.location
+  - unless user.twitter.blank?
+    = '<br/>Twitter: '
+    = link_to('@' + user.twitter, 'http://twitter.com/' + user.twitter)
+  - unless user.home_page.blank?
+    %br
+    = 'Web: '
+    = link_to(user.home_page, user.home_page)
