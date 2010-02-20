@@ -16,9 +16,9 @@ class ApplicationController < ActionController::Base
   
   def determine_layout
     if signed_in?
-      'app'
+      'logged_in'
     else
-      'application'
+      'not_logged_in'
     end
   end
   

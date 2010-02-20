@@ -1,0 +1,37 @@
+%html{ "xml:lang" => "en", :lang => "en", :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %meta{ :content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type" }
+    %meta{ :name => "author", :content => "Jeff Perrin" }
+    %meta{ :name => "description", :content => "Golf score keeping & handicap calculation" }
+    %meta{ :name => "keywords", :content => "Handicappr, handicap, golf, golfer, slope, rating, friend, follow, group" }
+    = stylesheet_link_tag "screen"
+    = stylesheet_link_tag "vertical/Forms"
+    %title
+      Handicappr - Golf
+  %body
+    #content
+      %p#top
+        Track your scores, calculate your handicap, follow your friends
+      #logo
+        %h1
+          %a{ :href => "index.html" }
+            Handicappr
+      %ul#menu
+        %li.current
+          %a{ :href => "/" }
+            Home
+        %li
+          %a{ :href => "/search" }
+            Search
+        %li
+          %a{ :href => "/signin" }
+            Login
+      .line
+      %section#content
+        = yield
+      #footer
+        %p
+          \&copy; Copyright 2010 - Design adapted from Luka Cvrk's
+          %a{ :href => "http://www.solucija.com/template/distinctive", :title => "Free CSS Templates" }
+            Distinctive
+          template
