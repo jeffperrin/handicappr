@@ -8,6 +8,7 @@
     = stylesheet_link_tag "vertical/Layout"
     = stylesheet_link_tag "vertical/Forms"
     = render :partial => 'shared/javascript'
+    = render :partial => 'shared/analytics'
   %body
     %section#info
       %header
@@ -22,4 +23,7 @@
         = render :partial => 'shared/messages'
       = yield
     %footer
-      © 2010 Example Inc.
+      © 2010 
+      %a{ :href => 'http://jeffperrin.com' }
+        Jeff Perrin
+        

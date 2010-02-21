@@ -1,34 +1,32 @@
-﻿html{
-	clear: both;
-	background-color: #efe;
-}
-header{
-	
+﻿header{
+
 }
 header h1{
-	padding: 30px;
-	background-color: green;
-	background-image: url(flag.png);
-	background-repeat: no-repeat;
-	background-position: 10px;
-	border-top: 1px solid #ddd;
-	border-bottom: 1px solid #ddd;
-	text-align: right;
+  color: #ddd;
+  width: 150px;
+	text-shadow: 1px 1px 1px #000;
+	background: #005B00 url(/images/flag.png) 45% 30% no-repeat; 
+	padding: 100px 25px 15px; 
+	margin: 0px 70px 25px 70px;
+	border-bottom: 1px solid #002700;
+	border-right: 1px solid #002700;
+	-moz-border-radius-bottomright: 10px; 
+	-moz-border-radius-bottomleft: 10px; 
+	-webkit-border-bottom-right-radius: 10px; 
+	-webkit-border-bottom-left-radius: 10px;
 }
 section#info{
 	position: fixed;
 	height: 100%;
 	width: 30%;
-	background-color: #3F3F3F;
 	background-repeat: repeat-y;
 	background-position-x: right;
-	color: #ddd;
 }
 section#content{
 	float: left;
+	margin-top: 50px;
 	margin-left: 35%;
 	clear: both;
-	background-color: #efe;
 	width: 60%;
 	background-repeat: repeat-y;
 	ba
@@ -65,6 +63,8 @@ aside{
 footer{
 	position: fixed;
 	bottom: 0;
+	background-color: #666;
+	width: 100%;
 }
 
 nav ol{
@@ -74,30 +74,33 @@ nav ol{
 	padding: 0; margin: 0;
 }
 nav ol li{
-	padding: 0; margin-left: 140px;
+	padding: 0; 
+	margin-left: 200px;
+  margin-right: 80px;
 	list-style-type: none;
 }
 nav ol li a{
 	text-decoration: none;
-	padding: 5px 25px 5px 5px;
+	padding: 5px 5px 5px 5px;
 	display: block;
-	color: #ddd;
 }
 nav ol li a:hover{
 	background-color: #676767;
 }
 #gravatar{
-	float: left;
+	position: fixed;
+	left: 70px;
+	top: 160px;
 	margin: 8px;
 	border: 1px solid #bbb;
 }
 #bio{
-	margin: 10px;
+	margin: 0 0 0 70px;
 }
 #handicap{
 	position: fixed;
-	left: 20px;
-	top: 150px;
+	left: 75px;
+	top: 270px;
 	font-size: 3em;
 }
 #handicap a{

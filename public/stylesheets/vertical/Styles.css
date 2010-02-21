@@ -1,13 +1,15 @@
 ﻿body
 {
 	margin: 0;
-	font-family: Palatino, "Times New Roman", serif
-	font-size: 1.0em;
-	line-height: 1.5em; 
+	height: 50px;
+	font: .9em Arial, Tahoma, Verdana;
+	line-height: 1.4em;
+	background: #fff url(/images/header.png) 0 -50px repeat-x;
 }
 h1
 {
 	font-size: 2em;
+	font-weight: normal;
 }
 h2
 {
@@ -19,7 +21,6 @@ h3
 }
 h1,h2,h3
 {
-	font-family: Garamond, "Times New Roman", Times, serif;
 	margin: 10px 0;
 }
 h1,h2,h3,h4,h5,h6,strong,dt

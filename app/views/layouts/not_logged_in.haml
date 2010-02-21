@@ -6,8 +6,17 @@
     %meta{ :name => "keywords", :content => "Handicappr, handicap, golf, golfer, slope, rating, friend, follow, group" }
     = stylesheet_link_tag "screen"
     = stylesheet_link_tag "vertical/Forms"
+    = render :partial => 'shared/analytics'
     %title
       Handicappr - Golf
+    :javascript
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    :javascript
+      try {
+      var pageTracker = _gat._getTracker("UA-442817-3");
+      pageTracker._trackPageview();
+      } catch(err) {}
   %body
     #content
       %p#top

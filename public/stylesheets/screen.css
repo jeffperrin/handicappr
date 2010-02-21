@@ -1,5 +1,5 @@
 *{margin:0;padding:0}:focus,:active {outline:0}img{border: 0}
-body { font: .8em Arial, Tahoma, Verdana; background: #fff url(../images/header.png) 0 -20px repeat-x; color: #2C2C2C; }
+body { font: .9em Arial, Tahoma, Verdana; background: #fff url(/images/header.png) 0 -20px repeat-x; color: #2C2C2C; }
 a { text-decoration: none; color: #007100; }
 a:hover { text-decoration: underline; }
 h1 { font-size: 1.4em; font-weight: normal; }
@@ -12,14 +12,14 @@ p { clear: both; line-height: 1.64em; margin: 0 0 15px; }
 .clear { clear: both; }
 #content { width: 970px; margin: 0 auto; }
 	#top { color: #ccc; padding: 6px 20px 0; font-size: .84em; text-align: right; }
-	#logo { float: left; background: #005B00 url(../images/flag.png) 45% 30% no-repeat; padding: 100px 25px 15px; margin: -46px 0 20px;			-moz-border-radius-bottomright: 10px; -moz-border-radius-bottomleft: 10px; -webkit-border-bottom-right-radius: 10px; -webkit-border-bottom-left-radius: 10px;
+	#logo { float: left; background: #005B00 url(/images/flag.png) 45% 30% no-repeat; padding: 100px 25px 15px; margin: -46px 0 20px;	-moz-border-radius-bottomright: 10px; -moz-border-radius-bottomleft: 10px; -webkit-border-bottom-right-radius: 10px; -webkit-border-bottom-left-radius: 10px;
 	}
 		#logo h1 { text-shadow: 1px 1px 1px #000; }
 	#menu { float: right; margin: 63px 20px 0; }
 		#menu li { display: inline; font-size: 1.3em; }
 			#menu li a { float: left; color: #808080; padding: 0 0 5px; margin: 0 0 0 55px; }
 			#menu li a:hover, #menu li.current a, #menu li a:focus { color: #000; border-bottom: 1px solid #ddd; }
-	#pitch { background: url(../images/quad.png) no-repeat 680px -35px; padding: 30px 350px 0 0; border-bottom: 1px solid #ddd; height: 170px; margin: 0 0 35px; }
+	#pitch { background: url(/images/quad.png) no-repeat 680px -35px; padding: 30px 350px 0 0; border-bottom: 1px solid #ddd; height: 170px; margin: 0 0 35px; }
 		#pitch h1 { font-size: 2.6em; color: #000; margin: 0 0 20px; }
 		#pitch h2 { line-height: 1.5em; }
 	.left { float: left; width: 250px; }	
