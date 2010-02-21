@@ -74,12 +74,11 @@ input[type="checkbox"],input[type="radio"],input[type="reset"],input[type="submi
 	padding: 1px;
 }
 a{
-	color: #00477F;
-	text-decoration: underline;
+	color: #007100;
+	text-decoration: none;
 }
 a:hover{
-	background-color: #00477F;
-	color: #fff;
+	text-decoration: underline;
 }
 
 .message_block { clear: both; margin-top: 0.2em; margin-bottom: 0.3em; }

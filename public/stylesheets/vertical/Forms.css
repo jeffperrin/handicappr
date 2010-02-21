@@ -22,7 +22,7 @@ select.selected, textarea.selected { background-color: #d9ffcc; border: 1px soli
 
 a.button:hover { font-style: normal; }
 
-button{
+button, input[type=submit]{
 	display: inline-block; 
 	vertical-align: baseline; 
 	margin-right: 0.3em; 
@@ -41,29 +41,19 @@ button{
 	width: auto; 
 	text-align: right; 
 }
-button.add{
+button.add, input[type=submit].add{
 	background: #e3e3e3 url('/Content/images/tick.png') no-repeat 10% 50%;
 }
-button.remove{
+button.remove, input[type=submit].remove{
 	background: #e3e3e3 url('/Content/images/cross.png') no-repeat 10% 50%;
 }
-button.up{
-	background: #fff url('/Content/images/up.png') no-repeat 50% 50%;
-	border: 0;
-	padding: 10px;
-}
-button.down{
-	background: #fff url('/Content/images/down.png') no-repeat  50% 50%;
-	border: 0;
-	padding: 10px;
-}
-button:active {
+button:active, input[type=submit]:active {
 	padding-top: 5px;
-    border-top: 1px solid #aaa; 
+  border-top: 1px solid #aaa; 
 	border-left: 1px solid #aaa; 
 	border-bottom: 1px solid #ccc; 
 	border-right: 1px solid #ccc; 
 }
-button:hover{
+button:hover, input[type=submit]:hover{
 	background-color: #eee; 
 }
