@@ -15,10 +15,10 @@ module ApplicationHelper
     options[:model_error_type] ||= :error
     options[:flash_types] ||= [:notice, :back, :confirm, :error, :info, :warn, :failure, :success]
     options[:on] ||= controller.controller_name.split('/').last.gsub(/\_controller$/, '').singularize.to_sym
-    options[:html] ||= {:id => 'message_block', :class => 'message_block'}
+    options[:html] ||= {:id => 'messages'}
     options[:html][:id] = options[:id] if options[:id]
     options[:html][:class] = options[:class] if options[:class]
-    options[:container] = :div if options[:container].nil?
+    options[:container] = :section if options[:container].nil?
 
     flash_messages = {}
 
@@ -51,7 +51,9 @@ module ApplicationHelper
       content_tag(:ul, flash_messages[type.to_sym].map {|message| content_tag(:li, message) }.join, :class => type)
     end.join
 
-    if options[:container]
+    if contents.empty?
+      
+    elsif options[:container]
       content_tag(options[:container], contents, options[:html])
     else
       contents

@@ -3,7 +3,7 @@
   = label_tag :val, "Find a golfer:"
   = '<br />'
   = text_field_tag :val
-  = submit_tag "Search"
+  = submit_tag "Search", :class => 'search'
 - unless @results.empty?
   = render :partial => "/searches/results", :locals => { :results => @results }
   

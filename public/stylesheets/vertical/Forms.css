@@ -37,18 +37,18 @@ button, input[type=submit]{
 	width: auto; 
 	overflow: visible; 
 	cursor: pointer;
-	padding: 4px 12px 4px 30px; 
+	padding: 10px 15px 7px 40px; 
 	width: auto; 
-	text-align: right; 
+	text-align: right;
+	background: #e3e3e3 url('/images/submit.png') no-repeat 10% 50%;
+	font-size: .9em;
 }
-button.add, input[type=submit].add{
-	background: #e3e3e3 url('/Content/images/tick.png') no-repeat 10% 50%;
-}
-button.remove, input[type=submit].remove{
-	background: #e3e3e3 url('/Content/images/cross.png') no-repeat 10% 50%;
+button.search, input[type=submit].search{
+  background-image: url(/images/search_24x24.png);
 }
 button:active, input[type=submit]:active {
-	padding-top: 5px;
+	padding-top: 12px;
+	padding-bottom: 5px;
   border-top: 1px solid #aaa; 
 	border-left: 1px solid #aaa; 
 	border-bottom: 1px solid #ccc; 

@@ -7,6 +7,7 @@
     = stylesheet_link_tag "vertical/Styles"
     = stylesheet_link_tag "vertical/Layout"
     = stylesheet_link_tag "vertical/Forms"
+    = stylesheet_link_tag "vertical/Messages"
     = render :partial => 'shared/javascript'
     = render :partial => 'shared/analytics'
   %body
@@ -19,8 +20,7 @@
       %aside
         = render :partial => 'shared/logged_in_sidebar'
     %section#content
-      %section#messages
-        = render :partial => 'shared/messages'
+      = render :partial => 'shared/messages'
       = yield
     %footer
       © 2010 

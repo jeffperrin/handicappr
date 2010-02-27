@@ -1,0 +1,19 @@
+section#messages{
+	display: inline-block;
+	width: 100%;
+	background-color: #F0FFA4;
+	border: 2px solid #EED957;
+	padding: 15px;
+	margin-bottom: 15px;
+	-moz-border-radius-bottomright: 10px; 
+	-moz-border-radius-bottomleft: 10px; 
+	-webkit-border-bottom-right-radius: 10px; 
+	-webkit-border-bottom-left-radius: 10px;
+}
+#messages { clear: both; margin-top: 0.2em; margin-bottom: 0.3em; }
+#messages ul {  }
+#messages ul li { margin-left: 5em; list-style-type: none; padding: 5px; }
+ul.error, ul.failure { background: url(/images/warning.png) 1em 10% no-repeat; }
+ul.info, ul.notice { background: url(/images/info.png) 1em 10% no-repeat; }
+ul.confirm, ul.success { background: url(/images/success.png) 1em 10% no-repeat; }
+ul.warn { background: url(/images/message_block/warn_m.gif) 1em 10% no-repeat; }

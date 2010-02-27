@@ -8,6 +8,7 @@
       Handicappr - Golf
     = stylesheet_link_tag "screen"
     = stylesheet_link_tag "vertical/Forms"
+    = stylesheet_link_tag "vertical/Messages"
     = render :partial => 'shared/analytics'
   %body
     #content
@@ -29,8 +30,7 @@
             Login
       .line
       %section#content
-        %section#messages
-          = render :partial => 'shared/messages'
+        = render :partial => 'shared/messages'
         = yield
       #footer
         %p
