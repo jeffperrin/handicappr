@@ -1,12 +1,10 @@
 %h2
-  = image_tag gravatar_url_for(@user.email)
   = "Viewing Handicappr profile of " + @user.username
-  
 = render :partial => 'users/bio', :locals => { :user => @user }
 - if @user.rounds.empty?
   %p No rounds have been entered
   %p= @user.username + " does not yet have a handicap because they haven't entered any rounds." 
 - else
   %p.handicap= @user.handicap
-  %h3 Past rounds:
+  %h3 Recent rounds:
   = render :partial => "/rounds/rounds_list", :locals => { :rounds => @user.recent_rounds(params[:page], 10) }

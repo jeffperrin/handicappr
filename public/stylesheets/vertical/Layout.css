@@ -96,27 +96,33 @@ nav ol li.profile a:hover { background: url(/images/profile_24x24.png) no-repeat
 nav ol li.history a:hover { background: url(/images/Home_24x24.png) no-repeat;}
 nav ol li.search a:hover { background: url(/images/search_24x24.png) no-repeat;}
 nav ol li.logout a:hover { background: url(/images/logout_24x24.png) no-repeat;}
-#gravatar{
+
+section#info .gravatar{
 	position: fixed;
 	left: 70px;
 	top: 160px;
 	margin: 8px;
 	border: 1px solid #bbb;
 }
-#bio{
+
+section#content img .gravatar{
+  float: left;
+}
+
+section#info .bio{
 	margin: 0 0 0 70px;
 }
-#handicap{
+section#info .handicap{
 	position: fixed;
 	left: 75px;
 	top: 270px;
 	font-size: 3em;
 }
-#handicap a{
+.handicap a{
 	text-decoration: none;
 	color: inherit;
 }
-#handicap a:hover{
+.handicap a:hover{
 	text-decoration: none;
 }
 

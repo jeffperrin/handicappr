@@ -55,7 +55,7 @@ th
 {
 	font-weight: bold;
 	text-align: left;
-	border-bottom: 2px solid #4C88BE
+	border-bottom: 1px solid #ccc
 }
 tr{
 	border-bottom: dashed 1px #ddd;
@@ -82,14 +82,14 @@ a:hover{
 }
 
 .message_block { clear: both; margin-top: 0.2em; margin-bottom: 0.3em; }
-.message_block ul { margin-bottom: 0; list-style: none; padding: 10px; border-top: 1px solid #ecd757; border-bottom: 1px solid #ecd757; }
+.message_block ul { margin-bottom: 0; list-style: none; padding: 10px; }
 .message_block ul li { margin-left: 2em; }
-.message_block ul.error, .message_block ul.failure { background: #fcf6d0 url(/images/message_block/error_m.gif) 1em 10% no-repeat; }
-.message_block ul.info { background: #fcf6d0 url(/images/message_block/info_m.gif) 1em 10% no-repeat; }
-.message_block ul.notice { background: #fcf6d0 url(/images/message_block/notice_m.gif) 1em 10% no-repeat; }
-.message_block ul.confirm { background: #fcf6d0 url(/images/message_block/confirmation_m.gif) 1em 10% no-repeat; }
-.message_block ul.success { background: #fcf6d0 url(/images/message_block/confirmation_m.gif) 1em 10% no-repeat; }
-.message_block ul.warn { background: #fcf6d0 url(/images/message_block/warn_m.gif) 1em 10% no-repeat; }
+.message_block ul.error, .message_block ul.failure { background: url(/images/message_block/error_m.gif) 1em 10% no-repeat; }
+.message_block ul.info { background: url(/images/message_block/info_m.gif) 1em 10% no-repeat; }
+.message_block ul.notice { background: url(/images/message_block/notice_m.gif) 1em 10% no-repeat; }
+.message_block ul.confirm { background: url(/images/message_block/confirmation_m.gif) 1em 10% no-repeat; }
+.message_block ul.success { background: url(/images/message_block/confirmation_m.gif) 1em 10% no-repeat; }
+.message_block ul.warn { background: url(/images/message_block/warn_m.gif) 1em 10% no-repeat; }
 
 .gravatar { text-align: left; }
 .gravatar img { border: 1px solid #333; margin: 0px 5px 20px 5px; }

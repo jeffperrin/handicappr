@@ -16,6 +16,6 @@ Feature: Browsing Users
     Given a user named "Pasquale" exists
     And "Pasquale" has 1 round
     And I go directly to the url /golfer/Pasquale
-    Then I should see "Past rounds"
+    Then I should see "Recent rounds"
     And I should not see "Edit"
     And I should not see "Delete"

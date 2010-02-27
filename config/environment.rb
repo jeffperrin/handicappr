@@ -73,5 +73,5 @@ Rails::Initializer.run do |config|
              :source => 'http://gems.github.com',
              :version => '~> 0.2.1'
   config.gem 'haml'
-  
+  config.gem 'searchlogic', :version => '2.4.11'
 end
