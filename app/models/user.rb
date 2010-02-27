@@ -7,10 +7,6 @@ class User < ActiveRecord::Base
   validates_presence_of :username
   validates_uniqueness_of :username, :case_sensitive => false
   
-  named_scope :search, lambda { |search_term|
-    { :conditions => "username LIKE '%#{search_term}%'" }
-  }
-  
   def recent_rounds(page, per_page=10)
     Round.paginate_by_user_id(id, :page => page, :order => 'updated_at DESC', :per_page => per_page)
   end
